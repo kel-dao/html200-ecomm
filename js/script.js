@@ -48,3 +48,10 @@ var products = [
     "imageTitle": "twill.jpg"
   }
 ]
+
+/*
+- Loop through object, output each value to console 
+*/
+for (i = 0; i < products.length; i++) {
+    console.log(products[i].name + ". " + products[i].description + ". " + products[i].price);
+}
