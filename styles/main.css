@@ -50,7 +50,8 @@ section h2 {
 
  aside {
    float: right;
-   height: 100%;
+   padding-right: 0.5em;
+   
  }
 
 section {
