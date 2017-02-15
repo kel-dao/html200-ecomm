@@ -52,6 +52,11 @@ var products = [
 /*
 - Loop through object, output each value to console 
 */
-for (i = 0; i < products.length; i++) {
-    console.log(products[i].name + ". " + products[i].description + ". " + products[i].price);
+//for (i = 0; i < products.length; i++) {
+//    console.log(products[i].name + ". " + products[i].description + ". " + products[i].price);
+//}
+
+function capture () {
+  console.log(document.scarfInfo.filter.value);
+  event.preventDefault();
 }
