@@ -80,18 +80,26 @@ section {
   padding: 0.6rem;
 }
 
+
 .item-container {
   flex-flow: row wrap-reverse;
   width: 30%;
-  height: 33rem;
+  height: 35em;
   margin: .4em;
   padding: 0.5em;
   border: 1px solid;
   border-color: black;
   float: left;
+  position: relative;
 }
 
 .item-container img {
-  width: 95%;
-  align-items: center;
+  width: 90%;
+  align-content: center;
+}
+
+.item-container p {
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 0.5rem;
 }
