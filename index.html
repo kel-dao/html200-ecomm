@@ -42,6 +42,17 @@
 
   <section>
     <h2>Scarves</h2>
+     <form name="scarfInfo" onsubmit="capture();">
+      <label>Filter By:
+        <select name="filter">
+          <option value="">Choose One</option>
+          <option value="price">Price</option>
+          <option value="name">Name</option>
+        </select>
+      </label>
+
+      <input type="submit" value="Sort">
+    </form>
 
     <div class="item-container">
       <div class="item">
@@ -148,13 +159,13 @@
     </div>
   </section>
   
-  <footer>
+  <section class="footer">
     <h3>CONTACT US!</h3>
     <ul>
       <li>(555) ITS - COLD</li>
       <li>Seattle, WA</li>
     </ul>
-  </footer>
+  </section>
 
   <script type="text/javascript" src="js/script.js"></script>
 </body>

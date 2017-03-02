@@ -38,6 +38,7 @@ nav li a {
 nav a:hover {
   background-color: lightsteelblue;
   font-family: 'Barrio', cursive;
+  color: white;
 }
 
 nav li {
@@ -62,29 +63,33 @@ section {
   font-family: 'Josefin Sans', sans-serif;
   margin: 1em;
   padding: 1em;
+  
 }
 
 section h2 {
   font-family: 'Barrio', cursive;
   font-size: 3em;
+  clear: both;
+  color: white;
 }
 
- aside {
-   float: right;
-   padding-right: 0.5em;
-   
- }
+aside {
+  float: right;
+  margin-right: 2.5rem;
+  padding: 1rem;
+  background-color: lightsteelblue;
+  color: white;
+}
 
 section {
   float: left;
   border: solid;
   border-color: white;
   border-width: thin;
-  margin-right: 25%;
-  width: 100%;
+  width: 90%;
   margin-top: 1em;
-  margin-bottom: 0.2em;
-  padding: 0.6rem;
+  margin-bottom: 3em;
+  margin: 2em;
 }
 
 
@@ -127,9 +132,7 @@ h3 {
 
 .footer {
   padding: 2rem;
+  margin: 2em;
   text-align: center;
-}
-
-@media print {
-  color: black;
+  width: 87%;
 }
