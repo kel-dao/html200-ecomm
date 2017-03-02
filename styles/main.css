@@ -1,20 +1,23 @@
 body {
   background-color: white;
+  background-image: url(/background.jpg);
+  background-image: cover;
   font-family: 'Barrio', cursive;
   font-family: 'Josefin Sans', sans-serif;
   padding: 0.3em;
 }
 
 header h1 {
-
-  
-  font-size: 3rem;
+  font-family: 'Barrio', cursive;
+  font-size: 3.5rem;
   text-align: center;
   padding: 1em;
+  font-weight: bold;
+  background-color: light;
 }
 
 nav {
-  background-color: lightcoral;
+  background-color: lightsteelblue;
   overflow: hidden;
   text-align: center;
   border: 1px black;
@@ -39,7 +42,7 @@ nav a:hover {
 
 nav li {
   display: block;
-  background-color: lightcoral;
+  background-color: lightsteelblue;
   align-content: space-around;
   padding: 0.5em;
 }
@@ -55,13 +58,15 @@ nav li {
 }
 
 section {
-  background-color: white;
+  background-color: lightsteelblue;
   font-family: 'Josefin Sans', sans-serif;
+  margin: 1em;
+  padding: 1em;
 }
 
 section h2 {
   font-family: 'Barrio', cursive;
-  font-size: 2em;
+  font-size: 3em;
 }
 
  aside {
@@ -93,6 +98,7 @@ section {
   border-color: black;
   float: left;
   position: relative;
+  background: white;
 }
 
 .item-container img {
@@ -111,4 +117,19 @@ section {
   font-family: 'Barrio', cursive;
   padding: 1em;
   text-align: center;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.footer {
+  padding: 2rem;
+  text-align: center;
+}
+
+@media print {
+  color: black;
 }
