@@ -47,7 +47,7 @@ nav li {
   padding: 0.5em;
 }
 
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 660px) {
     .menu-list > .list-item {
         border-width: 1px black;
     }
