@@ -133,6 +133,29 @@ h3 {
 .footer {
   padding: 2rem;
   margin: 2em;
-  text-align: center;
-  width: 87%;
+  width: 85%;
 }
+
+
+.footer ul {
+  float: left;
+  padding: 1em;
+  font-size: 1.3em;
+  text-align: center;
+  padding-top: 5rem
+}
+
+
+.footer form {
+  float: right;
+  margin: 1em;
+  padding: 1em;
+  padding-top: 3em;
+}
+
+.footer img {
+  height: 12rem;
+
+  float: left;
+}
+
