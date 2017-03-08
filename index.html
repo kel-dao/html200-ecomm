@@ -23,16 +23,25 @@
       </ul>
     </nav>
 
+    <div id="cart">
+      <h2> Your Cart </h2>
+      <p class="hidden" id="itemsMessage"><span class="number-of-items-in-cart"></span> item(s) in the cart</p>
+      <ul id="cart-items-list"></ul>
+      <div class="separator"></div>
+      <p id="cart-total"></p>
+      <button id="checkout"> Checkout! </button>
+    </div>
+    
     <h1>Winter Wear Warehouse</h1>
   </header>
 
   <aside>
-    <form name="scarfInfo" onsubmit="capture();">
+    <form name="scarfSort" onsubmit="filterProducts();">
       <label>Filter By:
-        <select name="filter">
+        <select name="filter" id="sort">
           <option value="">Choose One</option>
           <option value="price">Price</option>
-          <option value="name">Name</option>
+          <option value="name" onClick="name.sort()">Name</option>
         </select>
       </label>
 
@@ -53,6 +62,8 @@
           </picture>
           <p>Two classic patterns in one great look: This supersoft and cozy reversible scarf instantly doubles your street-style cred. 100% acrylic.</p>
           <h6>$26.99</h6>
+        <button type="button" onClick="addItem('Reversible')">Add +</button>
+        <button type="button" onClick="removeItem('Reversible')">Remove -</button>
       </div>
     </div>
     
@@ -66,6 +77,8 @@
           </picture>
           <p>Generously sized, extra soft and featuring a dazzling fringe, this scarf is rendered in a versatile gray, black and white plaid. Expertly beat the cold with style. 100% acrylic.</p>
           <h6>$18.99</h6>
+        <button type="button" onClick="addItem('Fringed')">Add +</button>
+        <button type="button" onClick="removeItem('Fringed')">Remove -</button>
       </div>
     </div>
     
@@ -79,6 +92,8 @@
           </picture>
           <p>The Who What Wear Oversize Color-Block Square Scarf is big, bold, and designed to twist and wrap any way you wish. All the colors of the season are harmonized in this oversize accent, so you can adjust to contrast or match your outfit; soft and lush, it’s your stylish standoff against cold AC and unexpected fall breezes. 100% acrylic.</p>
           <h6>$22.99</h6>
+        <button type="button" onClick="addItem('Multi')">Add +</button>
+        <button type="button" onClick="removeItem('Multi')">Remove -</button>
       </div>
     </div>
     
@@ -92,6 +107,8 @@
          </picture>
           <p>A dip-dye effect adds color and dimension to a cozy infinity scarf featuring a soft, chunky knit. 100% acrylic.</p>
           <h6>$11.99</h6>
+        <button type="button" onClick="addItem('Ombre')">Add +</button>
+        <button type="button" onClick="removeItem('Ombre')">Remove -</button>
       </div>
     </div>
     
@@ -105,6 +122,8 @@
          </picture>
           <p>Faribault brings you the Ashby Twill Scarf in Natural. Woven with a 'broken' twill technique, the Ashby Twill Scarf has a slight zigzag texture. Made in USA, this timeless scarf is crafted with luxurious merino wool and finished with heather gray fringe. 100% Merino wool.</p>
           <h6>$70.99</h6>
+        <button type="button" onClick="addItem('Ashby')">Add +</button>
+        <button type="button" onClick="removeItem('Ashby')">Remove -</button>
       </div>
     </div>
     
@@ -118,6 +137,8 @@
          </picture>
           <p>Warm yourself with this women's natural cable knit scarf, crafted from 100% Merino wool. Imported.</p>
           <h6>$49.99</h6>
+        <button type="button" onClick="addItem('Cable')">Add +</button>
+        <button type="button" onClick="removeItem('Cable')">Remove -</button>
       </div>
     </div>
     
@@ -131,6 +152,8 @@
          </picture>
           <p>Luxurious silk scarf with subtle paisley pattern. 100% silk.</p>
           <h6>$249.99</h6>
+        <button type="button" onClick="addItem('Etro')">Add +</button>
+        <button type="button" onClick="removeItem('Etro')">Remove -</button>
      </div>
     </div>
     
@@ -144,6 +167,8 @@
          </picture>
           <p>Handmade by women in Agra, sales provide medical and educational support in this remote area of India. Crinkly 100% cotton.</p>
           <h6>$29.99</h6>
+        <button type="button" onClick="addItem('Northern')">Add +</button>
+        <button type="button" onClick="removeItem('Northern')">Remove -</button>
       </div>
     </div>
   </section>
@@ -151,9 +176,10 @@
   <section class="footer">
     <img src="images/logo-scarfcat150.png" alt="logo">
     <ul>
-      <li>CONTACT US!</li>
-      <li>(555) ITS - COLD</li>
-      <li>Seattle, WA</li>
+      <li class="name">W.W.W.</li>
+      <li>(555) its - cold</li>
+      <li>1234 pike st. </li>
+      <li>seattle, wa</li>
     </ul>
     <form>
       <label>Email: <input type="email" name="email"></label>

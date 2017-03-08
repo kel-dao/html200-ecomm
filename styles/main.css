@@ -108,18 +108,19 @@ section {
 .item-container img {
   width: 90%;
   align-content: center;
+  max-height: 25em;
 }
 
 .item-container p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   text-align: center;
   padding: 0.5rem;
 }
 
 .item-container h6 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-family: 'Barrio', cursive;
-  padding: 1em;
+  padding: 0.5em;
   text-align: center;
 }
 
@@ -156,3 +157,16 @@ h3 {
   float: left;
 }
 
+button {
+  font-size: 1.1em;
+  padding: 0.2em;
+  align-content: space-between;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.name {
+  font-family: 'Barrio', cursive;  
+  font-size: 2em;
+}
