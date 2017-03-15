@@ -23,6 +23,18 @@
       </ul>
     </nav>
 
+    <div id="my-cart">
+      <div class="arrow-up"></div>
+      <p class="hidden" id="itemsMessage"><span class="number-of-items-in-cart"></span> item(s) in the cart</p>
+      <p id="emptyMessage">Your cart is empty</p>
+      <div class="separator"></div>
+      <ul id="cart-items-list">
+      </ul>
+      <div class="separator"></div>
+      <p id="cart-total"></p>
+      <button id="cart-checkout">Checkout</button>
+    </div>
+    
     <h1>Winter Wear Warehouse</h1>
   </header>
 
@@ -31,8 +43,8 @@
       <label>Filter By:
         <select name="filter" id="sort">
           <option value="">Choose One</option>
-          <option value="price">Price</option>
-          <option value="name" onClick="name.sort()">Name</option>
+          <option value="price" onClick="comparePrice()">Price</option>
+          <option value="name" onCLick="compareName()">Name</option>
         </select>
       </label>
 
@@ -42,9 +54,8 @@
 
   <section>
     <h2>Scarves</h2>
-
     <div class="item-container">
-      <div class="item">
+      <div class="item" id="reversible">
         <h3>Reversible-Plaid Scarf</h3>
           <picture>
             <img src="images/reversible-plaid.jpg" alt="Reversible Plaid Scarf" 
@@ -59,7 +70,7 @@
     </div>
     
     <div class="item-container">
-      <div class="item">
+      <div class="item" id="fringed">
         <h3>Fringed Plaid Scarf</h3>
           <picture>
             <img src="images/fringed-plaid.jpeg" alt="Fringed Plaid Scarf" 
@@ -74,7 +85,7 @@
     </div>
     
     <div class="item-container">
-      <div class="item">
+      <div class="item" id="multi">
         <h3>Multi-Color Scarf</h3>
           <picture>
             <img src="images/multi-color.jpeg" alt="Multi Colored Scarf" 
@@ -89,7 +100,7 @@
     </div>
     
     <div class="item-container">
-      <div class="item">
+      <div class="item" id="ombre">
         <h3>Ombre Infinity Scarf</h3>
           <picture>
             <img src="images/ombre-infinity.jpg" alt="Ombre Infinity Scarf" 
@@ -104,7 +115,7 @@
     </div>
     
     <div class="item-container">
-      <div class="item">
+      <div class="item" id="ashby">
         <h3>Ashby Twill Scarf</h3>
           <picture>
             <img src="images/twill.jpg" alt="Ashby Twill Scarf" 
@@ -119,7 +130,7 @@
     </div>
     
     <div class="item-container">
-      <div class="item">
+      <div class="item" id="wool">
         <h3>Wool Cable Scarf</h3>
           <picture>
             <img src="images/wool-cable.jpeg" alt="Wool Cable Scarf" 
@@ -134,7 +145,7 @@
     </div>
     
    <div class="item-container">
-      <div class="item">
+      <div class="item" id="etro">
         <h3>Etro Paisley Print Scarf</h3>
           <picture>
             <img src="images/etro.png" alt="Etro Paisley Print Scarf" 
@@ -149,7 +160,7 @@
     </div>
     
     <div class="item-container">
-      <div class="item">
+      <div class="item" id="northern">
         <h3>Northern Lights Scarf</h3>
           <picture>
             <img src="images/northern-lights.jpg" alt="Northern Lights Scarf" 
@@ -163,7 +174,7 @@
       </div>
     </div>
   </section>
-  
+
   <section class="footer">
     <img src="images/logo-scarfcat150.png" alt="logo">
     <ul>
@@ -183,8 +194,9 @@
     </form>
     
   </section>
-
+  
   <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript" src="js/products.js"></script>
 </body>
 </html>
 
