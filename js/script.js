@@ -152,181 +152,95 @@ var products = [
 //}
 
 //Shopping Cart Function
-//cart function
-document.getElementById("cart-info").onclick = function () {
-  var popup = document.getElementById("my-cart");
-  toggleVisibility(popup);
-};
 
-function clickEvent(name, price) {
-    return function () {
-        addProduct(name, price);
-    };
+function filterProducts(){   
+console.log(document.sortBy.filter.value);
+event.preventDefault();
 }
 
-function populateProducts() {
-  var container = document.getElementById("item-container");
-  for (var i = 0; i < products.length; i++) {
-    var item = document.createElement("div");
-    item.className = "item";
-    item.innerHTML = "<h4>" + products[i].name + "</h4>";
-    item.innerHTML += "<img srcset='" + products[i].imageSrcSet + "' " +
-                            "sizes='" + products[i].imageSizes + "' " +
-                            "src='" + products[i].imageTitle + "' alt='" + products[i].name + " image'>";
-    item.innerHTML += "<p>" + products[i].description + "</p>";
-    item.innerHTML += "<p>$" + products[i].price + "</p>";
-    var button = document.createElement("button");
-    button.className = "hidden";
-    button.addEventListener('click', clickEvent(products[i].name, products[i].price));
-    button.textContent = "Add to my cart";
-    item.appendChild(button);
-    container.appendChild(item);
+function comparePrice(a, b) {
+  if (a.price < b.price) {
+    return -1;
   }
-}
-populateProducts();
-
-function sortProducts(event) {
-  event.preventDefault();
-  var container = document.getElementById("item-container");
-  var sortBy = document.sortMe.sort.value;
-  if(sortBy == "name") {
-    sortByName();
-    cleanElement(container);
-    populateProducts();
+  if (a.price > b.price) {
+    return 1;
   }
-  else if(sortBy == "price"){
-    sortByPrice();
-    cleanElement(container);
-    populateProducts();
+  return 0;
+}
+
+function compareName(a, b) {
+  if (a.name < b.name) {
+    return -1;
   }
-  
-  
-}
-
-function sortByName() {
-  products.sort(function(a, b) {
-    return a.name.toLowerCase() > b.name.toLowerCase();
-  });
-}
-
-function sortByPrice() {
-  products.sort(function(a, b) {
-    return a.price - b.price;
-  });
-}
-
-var cart = [];
-
-function checkName(name) {
-  return function(item) {
-    return item.name == name;
-  };
-}
-
-function findProductIndex(name, array) {
-  return array.findIndex(checkName(name));
-}
-
-
-function addToCart(name, price) {
-  var index = findProductIndex(name, cart);
-  if(index != -1) {
-    cart[index].qty ++; 
+  if (a.name > b.name) {
+    return 1;
   }
-  else {
-    cart.push({"name": name,
-             "qty": 1,
-             "price": price
-              });
-  }
-  
-  updatedCart();
+  return 0;
 }
 
-function removeFromCart(name) {
-  var index = findProductIndex(name, cart);
-  if(index != -1) {
-    var quantity = cart[index].qty;
-    if(quantity > 1) {
-      cart[index].qty --; 
-    }
-    else {
-      cart.splice(index, 1);
+function filterProducts(){
+  var sort_type = document.sortBy.filter.value;
+  if (sort_type === "price") {
+    console.log("sort by price");
+    products.sort(comparePrice);
+  } else if (sort_type === "name") {
+    console.log("sort by name");
+    products.sort(compareName);
+  }
+  console.log(products);
+ event.preventDefault();
+}
+
+var cart =[];
+    
+
+function addItem(name) {
+  var name_is_already_in_cart = false;
+  for (var i = 0; i < cart.length; i++) {
+    if (name === cart[i]) {
+      name_is_already_in_cart = true;
     }
   }
-  
-  updatedCart();
-}
-
-function numberOfItems(array) {
-  var items = 0;
-  for (var i = 0; i < array.length; i++) {
-    items += array[i].qty;
+  if (!name_is_already_in_cart) {
+      cart.push(name);
   }
-  return items;
+  console.log(cart.length);
+  console.log(name);
+  console.log(cart);
+    updatedCart();
 }
 
-function removeEvent(name) {
-  return function() {
-    removeFromCart(name);
-  };
+function removeItem(name) {
+  for (var i = 0; i < cart.length; i++) {
+    if (name === cart[i]) {
+        cart.splice(i,1);
+    }
+  }
+  console.log(cart.length);
+  console.log(name);
+  console.log(cart);
+    updatedCart();
 }
 
 function updatedCart() {
-  var number = document.querySelectorAll(".number-of-items-in-cart");
-  /*I know they are exactly 2*/
-  var items = numberOfItems(cart);
-  number[0].innerHTML = items;
-  number[1].innerHTML = items;
-  
-  var emptyMessage = document.getElementById("emptyMessage");
-  var itemsMessage = document.getElementById("itemsMessage");
-  
-  var cartList = document.getElementById("cart-items-list");
-  cleanElement(cartList);
-  var total = 0;
-  
-  if(cart.length > 0) {
-    emptyMessage.className = "hidden";
-    itemsMessage.className = "";
-    
-    for (var i = 0; i < cart.length; i ++) {
-      var item = document.createElement("li");
-      item.className = "item-in-cart";
-      item.innerHTML = "<div class='name'>" + cart[i].name + "</div>";
-      item.innerHTML += "<div class='qty'>" + cart[i].qty + " x </div>";
-      item.innerHTML += "<div class='price'>$" + cart[i].price + "</div>";
-      var remove = document.createElement("a");
-      remove.textContent = "Remove";
-      remove.href = "#";
-      remove.addEventListener('click', removeEvent(cart[i].name));
-      item.appendChild(remove);
-
-      total += cart[i].price * cart[i].qty;
-      cartList.appendChild(item);
-    }
-  }
-  else {
-    emptyMessage.className = "";
-    itemsMessage.className = "hidden";
-  }
-  document.getElementById("cart-total").innerHTML = "Total: $" + total.toFixed(2);
-  jumpingBadge();
+    var items = document.getElementById("simpleCart_quantity");
+    items.innerHTML = cart.length;
 }
 
-function jumpingBadge() {
-  var badge = document.getElementById("badge");
-  if(cart.length > 0) {
-    badge.className = "fa-stack badge";
-    badge.className += " bounce";
-
-    var animationEvent = whichAnimationEvent();
-    var bool = animationEvent && badge.addEventListener(animationEvent, function() {
-      badge.className = "fa-stack badge";
-    });
-  }
-  else {
-    badge.className = "hidden";
-  }
-  
+function populateProducts() {
+    var itemContainer =
+        document.getElementById("item-container"); 
+     for (var i = 0; i < products.length; i++) {
+         var item = document.createElement("div");
+         item.className = "item-container";
+         var h3 = document.createElement("h3");
+         h3.innerHTML = products[i].name;
+         item.appendChild(h3);
+         var p = document.createElement("p");
+         p.innerHTML = products[i].description;
+         item.appendChild(p);
+         itemContainer.appendChild(item-container);
+     }
 }
+
+populateProducts();
