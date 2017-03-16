@@ -18,22 +18,11 @@
         <li class="list-item"><a href="#">Gloves</a>  </li>
         <li class="list-item"><a href="#">Scarves</a>  </li>
         <li class="list-item">
-          <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
+        <span class="simpleCart_total"> <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)
         </li>
       </ul>
     </nav>
 
-    <div id="my-cart">
-      <div class="arrow-up"></div>
-      <p class="hidden" id="itemsMessage"><span class="number-of-items-in-cart"></span> item(s) in the cart</p>
-      <p id="emptyMessage">Your cart is empty</p>
-      <div class="separator"></div>
-      <ul id="cart-items-list">
-      </ul>
-      <div class="separator"></div>
-      <p id="cart-total"></p>
-      <button id="cart-checkout">Checkout</button>
-    </div>
     
     <h1>Winter Wear Warehouse</h1>
   </header>
@@ -44,7 +33,7 @@
         <select name="filter" id="sort">
           <option value="">Choose One</option>
           <option value="price" onClick="comparePrice()">Price</option>
-          <option value="name" onCLick="compareName()">Name</option>
+          <option value="name" onCLick="sortDivs()">Name</option>
         </select>
       </label>
 
@@ -196,7 +185,7 @@
   </section>
   
   <script type="text/javascript" src="js/script.js"></script>
-  <script type="text/javascript" src="js/products.js"></script>
+
 </body>
 </html>
 
